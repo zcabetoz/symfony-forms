@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}Form{% endblock %}
+
+{% block body %}
+    <h1 class="d-flex align-items-center justify-content-between">
+        Ejemplo Home! ✅
+        <a href="{{ path('post_create') }}" class="btn btn-dark btn-sm">Crear Post</a>
+    </h1>
+
+    <table class="table table-striped table-bordered table-hover">
+        <tbody>
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.title }}</td>
+                    <td class="text-end"><a href="{{ path('post_edit', {id:post.id}) }}">Editar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
